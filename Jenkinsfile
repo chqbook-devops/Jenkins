@@ -1,9 +1,12 @@
-properties ([
-	pipelineTriggers([pollSCM('* * * * *')])
-    ])
 node {
-    stage('Git Checkout') {
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
-          userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/oo4abhishek/test.git']]])
+  stage("Reading configuration file"){
+            config = readProperties file: "config.properties"
+    }
+  stage('scm'){
+	 def list_file= "${config.files}"
+        changedFiles = []
+	for (entry in changeLogSet.getItems()) {
+		echo "{entry}"
+        }
     }
 }
