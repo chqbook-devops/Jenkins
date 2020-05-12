@@ -4,8 +4,9 @@ node {
     }
   stage('scm'){
 	 def list_file= "${config.files}"
+	  echo "${list_file}"
 	for (entry in list_file.getItems()) {
-		echo "{entry}"
+		echo "${entry}"
         }
     }
 }
