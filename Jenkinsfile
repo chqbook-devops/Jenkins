@@ -4,8 +4,7 @@ node {
     }
   stage('scm'){
 	 def list_file= "${config.files}"
-        changedFiles = []
-	for (entry in changeLogSet.getItems()) {
+	for (entry in list_file.getItems()) {
 		echo "{entry}"
         }
     }
